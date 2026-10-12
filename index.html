@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --paper:#fbfaf7;
+  --dark:#1a1a18;
+  --ink:#1a1a18;
+  --muted:#6b675e;
+  --line:#ddd8cd;
+  --card:#ffffff;
+}
+
+*{box-sizing:border-box}
+
+html{
+  margin:0;
+  padding:0;
+  width:100%;
+}
+
+body{
+  margin:0;
+  width:100%;
+  overflow-x:hidden;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Montserrat',Arial,sans-serif;
+  font-weight:300;
+  line-height:1.7;
+}
+
+body.noscroll{overflow:hidden}
+
+h1,h2,h3{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:400;
+  margin:0;
+}
+
+/* ===== Portada ===== */
+.hero{
+  position:relative;
+  min-height:100vh;
+  min-height:100dvh;
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+  background:var(--dark);
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:center;
+  text-align:center;
+  padding:56px 20px 72px;
+}
+
+.hero .nombre{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:700;
+  text-transform:uppercase;
+  font-size:clamp(40px,13.5vw,72px);
+  line-height:1;
+  letter-spacing:.02em;
+}
+
+.hero .fecha{
+  font-weight:600;
+  font-size:17px;
+  letter-spacing:.35em;
+  padding-left:.35em;
+}
+
+.hero .saludo{
+  margin-top:20px;
+  font-family:'Playfair Display',Georgia,serif;
+  font-style:italic;
+  font-size:23px;
+  color:rgba(255,255,255,.75);
+  min-height:34px;
+}
+
+.hint{
+  position:absolute;
+  bottom:22px;
+  left:0;
+  right:0;
+  font-size:11px;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.55);
+  animation:bob 2s ease-in-out infinite;
+}
+
+@keyframes bob{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(5px)}
+}
+
+/* ===== Bloques ===== */
+.block{
+  position:relative;
+  overflow:hidden;
+  max-width:520px;
+  margin:auto;
+  padding:56px 26px;
+  text-align:center;
+}
+
+.block.tight-top{padding-top:28px}
+
+.block > *:not(.wm){position:relative}
+
+.izq{text-align:left}
+
+.wm{
+  position:absolute;
+  left:0;
+  right:0;
+  top:34px;
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:92px;
+  line-height:.9;
+  text-transform:uppercase;
+  color:rgba(26,26,24,.05);
+  pointer-events:none;
+  user-select:none;
+}
+
+.eyebrow{
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:14px;
+}
+
+.big{
+  font-size:clamp(42px,12.5vw,60px);
+  line-height:1.08;
+}
+
+.rule{
+  width:52px;
+  height:1px;
+  background:var(--ink);
+  margin:22px auto;
+}
+
+.texto{
+  font-size:15px;
+  color:#3a3833;
+  margin:0;
+}
+
+.firma{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+  font-size:28px;
+  margin-top:22px;
+}
+
+.dia{
+  font-weight:600;
+  font-size:12px;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  margin:22px 0 6px;
+}
+
+/* ===== Evento ===== */
+.cols{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  margin-top:26px;
+  text-align:center;
+}
+
+.col{padding:6px 10px}
+
+.col + .col{border-left:1px solid var(--line)}
+
+.col svg{margin-bottom:6px}
+
+.col .lbl{
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+.col h3{
+  font-size:22px;
+  font-weight:500;
+  line-height:1.15;
+  margin:8px 0 6px;
+  min-height:3.45em;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.col .dir{font-size:12px;color:var(--muted)}
+
+.col .hora{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:40px;
+  margin:16px 0 4px;
+}
+
+.col .hora em{font-size:24px}
+
+.col .nota{
+  font-size:11px;
+  color:var(--muted);
+  min-height:18px;
+  margin-bottom:10px;
+}
+
+/* ===== Botones ===== */
+.btn{
+  display:block;
+  width:100%;
+  max-width:360px;
+  margin:12px auto 0;
+  padding:15px 20px;
+  background:var(--dark);
+  color:#fff;
+  border:2px solid var(--dark);
+  border-radius:8px;
+  font-family:inherit;
+  font-size:15px;
+  font-weight:500;
+  cursor:pointer;
+  text-decoration:none;
+  text-align:center;
+}
+
+.btn.out{
+  background:transparent;
+  color:var(--ink);
+}
+
+.btn.mini{
+  display:inline-block;
+  width:auto;
+  max-width:none;
+  padding:10px 12px;
+  font-size:10.5px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-weight:600;
+  margin-top:8px;
+}
+
+.btn:disabled{opacity:.6;cursor:default}
+
+/* ===== Pie ===== */
+.pie{
+  background:var(--dark);
+  color:#fff;
+  text-align:center;
+  padding:44px 20px 52px;
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+}
+
+.pie .a{
+  font-family:'Playfair Display',Georgia,serif;
+  font-style:italic;
+  color:rgba(255,255,255,.7);
+  font-size:20px;
+}
+
+.pie .n{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+  font-size:24px;
+  margin-top:6px;
+}
+
+/* ===== Paneles (RSVP y regalo) =====
+   display:none por defecto: así NUNCA reservan espacio en la página,
+   sin importar si el navegador respeta position:fixed o no. */
+.sheet{
+  position:fixed;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  z-index:50;
+  background:var(--paper);
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  display:none;
+  transform:translateY(100%);
+  transition:transform .3s ease;
+}
+
+.sheet.open{
+  display:block;
+}
+
+.sheet.show{
+  transform:none;
+}
+
+#sheetRegalo{z-index:60}
+
+.sheet-head{
+  position:sticky;
+  top:0;
+  display:flex;
+  justify-content:flex-end;
+  padding:12px 16px;
+  background:var(--paper);
+  z-index:2;
+}
+
+.cerrar{
+  background:none;
+  border:none;
+  font-size:32px;
+  line-height:1;
+  color:var(--ink);
+  cursor:pointer;
+  padding:4px 10px;
+}
+
+.sheet-body{
+  max-width:520px;
+  margin:auto;
+  padding:0 24px 56px;
+  text-align:center;
+}
+
+/* ===== Formulario ===== */
+.persona{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:20px;
+  margin:16px 0;
+  text-align:left;
+}
+
+.persona h3{
+  font-size:24px;
+  font-weight:500;
+  margin-bottom:10px;
+}
+
+.persona label{font-size:13px;color:var(--muted)}
+
+select,
+textarea,
+input[type="text"]{
+  width:100%;
+  padding:12px;
+  margin-top:6px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:#fff;
+  font-family:inherit;
+  font-size:16px;
+  color:var(--ink);
+}
+
+.check{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 0;
+  font-size:15px;
+  color:var(--ink) !important;
+  cursor:pointer;
+}
+
+.check input{width:20px;height:20px;margin:0}
+
+.otra{display:none;margin:4px 0 8px 30px}
+
+.obs{text-align:left;margin:22px 0 6px}
+
+.resumen{
+  list-style:none;
+  padding:0;
+  margin:20px 0;
+  text-align:left;
+}
+
+.resumen li{
+  display:flex;
+  justify-content:space-between;
+  padding:10px 0;
+  border-bottom:1px solid var(--line);
+}
+
+/* ===== Regalo ===== */
+.alias{
+  display:inline-block;
+  margin:22px 0 6px;
+  padding:12px 22px;
+  border:1px dashed var(--ink);
+  border-radius:8px;
+  font-size:20px;
+  letter-spacing:.06em;
+}
+
+.titular{color:var(--muted);font-size:14px;margin:0 0 14px}
+
+/* ===== Animación de entrada ===== */
+.reveal{
+  opacity:0;
+  transform:translateY(16px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible{opacity:1;transform:none}
+
+.gate{
+  min-height:100vh;
+  min-height:100dvh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+.gate-box{
+  max-width:360px;
+  text-align:center;
+}
+
+.gate-box input{
+  width:100%;
+  padding:13px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  font-family:inherit;
+  font-size:16px;
+  margin-bottom:12px;
+}
+
+.gate-msg{
+  margin-top:16px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+.detalle{margin-top:30px}
+.detalle:first-child{margin-top:24px}
+.detalle h3{font-size:20px;font-weight:500;margin-bottom:6px}
+
+.gate-title{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+  font-size:36px;
+  color:var(--ink);
+  margin-bottom:12px;
+}
+
+.alias-bloque{margin-top:22px}
+.alias-bloque:first-child{margin-top:18px}
+
+.alias-label{
+  font-size:12px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:8px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+  <div id="gate" class="gate">
+  <div class="gate-box">
+    <div class="gate-title">Agustina<br>+<br>Mariano</div>
+    <p class="texto" style="margin:10px 0 20px">Escribí tu nombre y apellido para ver tu invitación.</p>
+    <input type="text" id="gateNombre" placeholder="Nombre y apellido" autocomplete="name">
+    <button class="btn" id="btnGate" onclick="buscarIdentidad()">Ver mi invitación</button>
+    <div id="gateMsg" class="gate-msg"></div>
+  </div>
+</div>
+
+<div id="app" style="display:none">
+<!-- PORTADA -->
+<div class="hero">
+  <div class="nombre">Agustina</div>
+  <div>
+    <div class="saludo" id="saludo"></div>
+  </div>
+  <div class="nombre">Mariano</div>
+  <div class="hint">Deslizá ↓</div>
+</div>
+
+<!-- NOS CASAMOS -->
+<section class="block">
+  <div class="wm">NOS CASAMOS</div>
+  <h2 class="big">NOS<br>CASAMOS</h2>
+  <div class="rule"></div>
+    <p class="texto">¡Queremos celebrar este día con ustedes!<br>Esperamos que puedan acompañarnos.</p>
+  <div class="firma">Agustina + Mariano</div>
+</section>
+
+<!-- EL GRAN DÍA + DETALLES -->
+<section class="block tight-top">
+  <h2 class="big" style="font-size:clamp(30px,9vw,38px)">CUÁNDO Y DÓNDE</h2>
+  <div class="dia">Viernes, 30 de octubre</div>
+  <div class="cols" id="eventos"></div>
+
+  <div class="rule" style="margin-top:44px"></div>
+
+    <h2 class="big" style="font-size:clamp(30px,9vw,38px)">Preguntas Frecuentes</h2>
+
+  <div class="detalle">
+    <h3>¿Cuál es el dress code?</h3>
+    <p class="texto">Es Cocktail / Elegante</p>
+  </div>
+
+  <div class="detalle">
+    <h3>¿Puedo llevar niños o un +1?</h3>
+    <p class="texto">Como se trata de una reunión íntima, les pedimos que solo asistan las personas nombradas en la invitación. El festejo va a ser solo para adultos.  </p>
+  </div>
+
+  <div class="detalle">
+    <h3>¿Hay estacionamiento?</h3>
+    <p class="texto">Águila Pabellón no cuenta con estacionamiento propio. De todas formas, está el estacionamiento de La Rural en frente.</p>
+  </div>
+</section>
+
+<!-- ANTES DE IRTE -->
+<section class="block tight-top">
+  <div class="eyebrow">Antes de irte</div>
+  <button class="btn" id="btnAbrirRsvp" onclick="abrirSheet('sheetRsvp')">RSVP</button>
+  <p class="texto" style="font-size:12px;margin-top:10px">
+    Confirmá tu asistencia antes del <strong>25/10</strong>
+  </p>
+  <button class="btn out" onclick="abrirSheet('sheetRegalo')">Regalos</button>
+</section>
+
+<div class="pie">
+  <div class="a">Los esperamos</div>
+  <div class="n">Agustina + Mariano</div>
+</div>
+
+<!-- PANEL RSVP -->
+<div class="sheet" id="sheetRsvp">
+  <div class="sheet-head">
+    <button class="cerrar" aria-label="Cerrar" onclick="cerrarSheet('sheetRsvp')">&times;</button>
+  </div>
+  <div class="sheet-body">
+    <div id="rsvpIntro">
+      <div class="eyebrow">RSVP</div>
+      <h2 style="font-size:36px">Confirmá tu asistencia</h2>
+      <p class="texto" style="margin-top:8px">Contanos si nos acompañan en la fiesta.</p>
+    </div>
+
+    <div id="formRsvp">
+      <div id="contenido"><p class="texto" style="margin-top:24px">Cargando...</p></div>
+
+      <div class="obs">
+        <label style="font-size:13px;color:var(--muted)">Observaciones</label>
+        <textarea id="obs" rows="3"></textarea>
+      </div>
+
+      <button class="btn" id="btnEnviar" onclick="enviar()">Confirmar asistencia</button>
+    </div>
+
+    <div id="confirmacion" style="display:none"></div>
+  </div>
+</div>
+
+<!-- PANEL REGALO -->
+<div class="sheet" id="sheetRegalo">
+  <div class="sheet-head">
+    <button class="cerrar" aria-label="Cerrar" onclick="cerrarSheet('sheetRegalo')">&times;</button>
+  </div>
+  <div class="sheet-body">
+    <div class="eyebrow">Regalos</div>
+    <p class="texto" id="regaloFrase" style="margin-top:20px"></p>
+    <div id="regaloAliases"></div>
+    <p class="titular" id="regaloTitular"></p>
+  </div>
+</div>
+</div>
+
+<script>
+
+let invitacion = null;
+
+const API_URL = "https://script.google.com/macros/s/AKfycbytFYH-Gq149s_BE1Te6-UiXztoHFNA1WK4oF_dc2pZ4SZDup-8uOZnQKb4hveyNNag/exec";
+
+const RESTRICCIONES = ["Vegetariano", "Vegano", "Celíaco", "Sin lactosa"];
+
+// ===== Datos editables =====
+const CONFIG = {
+  civil: {
+    etiqueta: "Ceremonia",
+    titulo: "Registro Civil Central",
+    direccion: "Uruguay 753",
+    hora: "15",
+    nota: "",
+    maps: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Uruguay 753, CABA")
+  },
+  fiesta: {
+    etiqueta: "Recepción",
+    titulo: "Águila Pabellón",
+    direccion: "Sarmiento 2725",
+    hora: "18",
+    nota: "",
+    maps: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Águila Pabellón, Sarmiento 2725, Buenos Aires")
+  },
+  regalo: {
+    frase: "Si querés hacernos un regalo y no sabés qué, podes hacernos una transferencia a:",
+    aliasPesos: "AgusyMarian.pesos",
+    aliasDolares: "AgusyMarian.dolares",
+    titular: "Titular de la cuenta: Elmiger Mariano Andrés"
+  }
+};
+
+const ALIAS_LISTA = [
+  { label: "Alias en pesos", key: "aliasPesos" },
+  { label: "Alias en dólares", key: "aliasDolares" }
+];
+
+// ===== Utilidades =====
+function esc(s){
+  return String(s).replace(/[&<>"']/g, function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+  });
+}
+
+function abrirSheet(idSheet){
+  const s = document.getElementById(idSheet);
+  s.classList.add("open");
+  s.scrollTop = 0;
+  document.body.classList.add("noscroll");
+  // Fuerza un reflow antes de animar, para que la transición se vea
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+      s.classList.add("show");
+    });
+  });
+}
+
+function cerrarSheet(idSheet){
+  const s = document.getElementById(idSheet);
+  s.classList.remove("show");
+  setTimeout(function(){
+    s.classList.remove("open");
+    if (!document.querySelector(".sheet.open")) {
+      document.body.classList.remove("noscroll");
+    }
+  }, 300);
+}
+
+// ===== Contenido estático =====
+function renderEstatico(){
+
+  document.getElementById("eventos").innerHTML = ["civil", "fiesta"].map(function(k){
+    const e = CONFIG[k];
+    return '<div class="col">' +
+      '<div class="lbl">' + esc(e.etiqueta) + '</div>' +
+      '<h3>' + esc(e.titulo) + '</h3>' +
+      '<div class="dir">' + esc(e.direccion) + '</div>' +
+      '<div class="hora">' + esc(e.hora) + ' <em>hs</em></div>' +
+      '<div class="nota">' + esc(e.nota) + '</div>' +
+      '<a class="btn out mini" href="' + e.maps + '" target="_blank" rel="noopener">Cómo llegar</a>' +
+      '</div>';
+  }).join("");
+
+  document.getElementById("regaloFrase").textContent = CONFIG.regalo.frase;
+
+  document.getElementById("regaloAliases").innerHTML = ALIAS_LISTA.map(function(a){
+    return '<div class="alias-bloque">' +
+      '<div class="alias">' + esc(CONFIG.regalo[a.key]) + '</div>' +
+      '<div class="alias-label">' + esc(a.label) + '</div>' +
+      '</div>';
+  }).join("");
+
+  const t = document.getElementById("regaloTitular");
+  if (CONFIG.regalo.titular) t.textContent = CONFIG.regalo.titular;
+  else t.style.display = "none";
+
+}
+
+function initReveal(){
+
+  if (!("IntersectionObserver" in window)) return;
+
+  const bloques = document.querySelectorAll(".block");
+
+  const obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting) {
+        en.target.classList.add("visible");
+        obs.unobserve(en.target);
+      }
+    });
+  }, {threshold: 0.12});
+
+  bloques.forEach(function(b){
+    b.classList.add("reveal");
+    obs.observe(b);
+  });
+
+}
+
+// ===== Identificación por nombre =====
+function buscarIdentidad(){
+
+  const nombre = document.getElementById("gateNombre").value.trim();
+  const msg = document.getElementById("gateMsg");
+  const btn = document.getElementById("btnGate");
+
+  if (!nombre) {
+    msg.textContent = "Escribí tu nombre para continuar.";
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = "Buscando...";
+  msg.innerHTML = "";
+
+  fetch(API_URL + "?action=buscar&nombre=" + encodeURIComponent(nombre))
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      btn.disabled = false;
+      btn.textContent = "Ver mi invitación";
+      procesarResultado(data);
+    })
+    .catch(function(err){
+      btn.disabled = false;
+      btn.textContent = "Ver mi invitación";
+      msg.textContent = "Ocurrió un error. Probá de nuevo.";
+    });
+
+}
+
+function procesarResultado(data){
+
+  const msg = document.getElementById("gateMsg");
+  msg.innerHTML = "";
+
+  if (data.estado === "no_encontrado") {
+    msg.textContent = "No encontramos ese nombre. Puede ser que te hayan anotado de otra forma — probá con otro nombre o consultale a los novios.";
+    return;
+  }
+
+  if (data.estado === "ambiguo") {
+    const p = document.createElement("p");
+    p.textContent = "Encontramos más de una coincidencia. Elegí cuál sos:";
+    msg.appendChild(p);
+
+    data.opciones.forEach(function(op){
+      const b = document.createElement("button");
+      b.className = "btn out mini";
+      b.style.display = "block";
+      b.style.margin = "8px auto";
+      b.textContent = op.personas.join(", ");
+      b.onclick = function(){ elegirOpcion(op.id); };
+      msg.appendChild(b);
+    });
+    return;
+  }
+
+  if (data.estado === "ok") {
+    abrirApp(data);
+  }
+
+}
+
+function elegirOpcion(idElegido){
+  document.getElementById("btnGate").disabled = true;
+  fetch(API_URL + "?action=invitacion&id=" + encodeURIComponent(idElegido))
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      document.getElementById("btnGate").disabled = false;
+      abrirApp(data);
+    })
+    .catch(function(err){
+      document.getElementById("btnGate").disabled = false;
+      document.getElementById("gateMsg").textContent = "Ocurrió un error. Probá de nuevo.";
+    });
+}
+
+function abrirApp(data){
+  document.getElementById("gate").style.display = "none";
+  document.getElementById("app").style.display = "block";
+  cargar(data);
+}
+
+function cargar(data){
+
+  if(!data) return;
+
+  invitacion = data;
+
+  document.getElementById("saludo").textContent = "Hola " + data.grupo;
+
+  let html = "";
+
+  data.personas.forEach(function(nombre, i){
+
+      const checks = RESTRICCIONES.map(function(r){
+      return '<label class="check"><input type="checkbox" name="rest' + i + '" value="' + r + '" onchange="manejarRestriccion(' + i + ', this)"> ' + r + '</label>';
+    }).join("");
+
+    html += '<div class="persona">' +
+      '<h3>' + esc(nombre) + '</h3>' +
+      '<label>¿Asiste a la fiesta?</label>' +
+      '<select id="asiste' + i + '" onchange="toggleRestricciones(' + i + ')">' +
+        '<option value="" selected disabled>Elegí una opción</option>' +
+        '<option value="Sí">Sí</option>' +
+        '<option value="No">No</option>' +
+      '</select>' +
+      '<div id="restBox' + i + '" style="display:none">' +
+        '<br>' +
+        '<label>Restricciones alimentarias (podés marcar más de una)</label>' +
+                checks +
+        '<label class="check"><input type="checkbox" name="rest' + i + '" value="Ninguna" onchange="manejarRestriccion(' + i + ', this)"> Ninguna</label>' +
+        '<label class="check"><input type="checkbox" name="rest' + i + '" value="Otra" onchange="manejarRestriccion(' + i + ', this); toggleOtra(' + i + ', this.checked)"> Otra</label>' +
+        '<div class="otra" id="otraBox' + i + '"><input type="text" id="otra' + i + '" placeholder="¿Cuál?"></div>' +
+      '</div>' +
+    '</div>';
+
+  });
+
+  document.getElementById("contenido").innerHTML = html;
+
+  if (precargar(data)) mostrarConfirmacion(false);
+
+}
+
+function toggleOtra(i, visible){
+  document.getElementById("otraBox" + i).style.display = visible ? "block" : "none";
+}
+
+function toggleRestricciones(i){
+  const asiste = document.getElementById("asiste" + i).value === "Sí";
+  document.getElementById("restBox" + i).style.display = asiste ? "block" : "none";
+}
+
+// Devuelve true si había respuestas previas y las cargó en el formulario
+function precargar(data){
+
+  const r = data.respuestas;
+  if (!r || !r.porPersona || !Object.keys(r.porPersona).length) return false;
+
+  data.personas.forEach(function(nombre, i){
+
+    const prev = r.porPersona[nombre];
+    if (!prev) return;
+
+    document.getElementById("asiste" + i).value = prev.asiste;
+    toggleRestricciones(i);
+
+        if (prev.asiste === "Sí" && prev.restriccion === "Ninguna") {
+
+      const ningunaBox = document.querySelector('input[name="rest' + i + '"][value="Ninguna"]');
+      if (ningunaBox) ningunaBox.checked = true;
+
+    } else if (prev.asiste === "Sí" && prev.restriccion) {
+
+      let texto = String(prev.restriccion);
+      let otraTexto = null;
+
+      const k = texto.indexOf("Otra");
+      if (k >= 0) {
+        otraTexto = texto.slice(k).replace(/^Otra:?\s*/, "");
+        texto = texto.slice(0, k);
+      }
+
+      const items = texto.split(",").map(function(s){ return s.trim(); }).filter(Boolean);
+      if (otraTexto !== null) items.push("Otra");
+
+      document.querySelectorAll('input[name="rest' + i + '"]').forEach(function(c){
+        c.checked = items.indexOf(c.value) >= 0;
+      });
+
+      if (otraTexto !== null) {
+        toggleOtra(i, true);
+        document.getElementById("otra" + i).value = otraTexto;
+      }
+    }
+
+  });
+
+  document.getElementById("obs").value = r.observaciones || "";
+
+  return true;
+
+}
+function manejarRestriccion(i, el){
+  const grupo = document.querySelectorAll('input[name="rest' + i + '"]');
+  if (el.value === "Ninguna" && el.checked) {
+    grupo.forEach(function(c){
+      if (c !== el) {
+        c.checked = false;
+        if (c.value === "Otra") toggleOtra(i, false);
+      }
+    });
+  } else if (el.checked) {
+    grupo.forEach(function(c){
+      if (c.value === "Ninguna") c.checked = false;
+    });
+  }
+}
+
+// ===== Confirmación =====
+function mostrarConfirmacion(scroll){
+
+  const lista = invitacion.personas.map(function(n, i){
+    return { nombre: n, asiste: document.getElementById("asiste" + i).value };
+  });
+
+  const van = lista.filter(function(p){ return p.asiste === "Sí"; }).length;
+
+  const titulo = van > 0 ? "¡Gracias por confirmar!" : "Gracias por avisarnos";
+  const texto = van > 0
+    ? "Los esperamos el 30 de octubre."
+    : "Lamentamos que no puedan acompañarnos.";
+
+  const c = document.getElementById("confirmacion");
+
+  c.innerHTML =
+    '<div class="rule"></div>' +
+    '<h3 style="font-size:32px">' + titulo + '</h3>' +
+    '<p class="texto" style="margin-top:8px">' + texto + '</p>' +
+    '<ul class="resumen">' +
+    lista.map(function(p){
+      return '<li><span>' + esc(p.nombre) + '</span><span>' + (p.asiste === "Sí" ? "Va" : "No va") + '</span></li>';
+    }).join("") +
+    '</ul>' +
+    '<button class="btn" onclick="cerrarSheet(\'sheetRsvp\')">Volver a la invitación</button>' +
+    '<button class="btn out" onclick="modificar()">Modificar respuesta</button>' +
+    '<button class="btn out" onclick="abrirSheet(\'sheetRegalo\')">Regalos</button>';
+
+  document.getElementById("formRsvp").style.display = "none";
+  document.getElementById("rsvpIntro").style.display = "none";
+  c.style.display = "block";
+
+  document.getElementById("btnAbrirRsvp").textContent = "Ver mi confirmación";
+
+  if (scroll) document.getElementById("sheetRsvp").scrollTop = 0;
+
+}
+
+function modificar(){
+  document.getElementById("confirmacion").style.display = "none";
+  document.getElementById("formRsvp").style.display = "block";
+  document.getElementById("rsvpIntro").style.display = "block";
+  document.getElementById("sheetRsvp").scrollTop = 0;
+}
+
+// ===== Envío =====
+function getRestricciones(i){
+
+  if (document.getElementById("asiste" + i).value !== "Sí") return "";
+
+  const marcadas = Array.from(
+    document.querySelectorAll('input[name="rest' + i + '"]:checked')
+  ).map(function(c){ return c.value; });
+
+  if (marcadas.length === 0) return "Ninguna";
+
+  return marcadas.map(function(v){
+    if (v !== "Otra") return v;
+    const detalle = document.getElementById("otra" + i).value.trim();
+    return detalle ? "Otra: " + detalle : "Otra";
+  }).join(", ");
+
+}
+
+function enviar(){
+
+  if (!invitacion) return;
+
+  for (let i = 0; i < invitacion.personas.length; i++) {
+    if (!document.getElementById("asiste" + i).value) {
+      alert("Falta responder si asiste " + invitacion.personas[i] + ".");
+      document.getElementById("asiste" + i).focus();
+      return;
+    }
+  }
+
+  const btn = document.getElementById("btnEnviar");
+  btn.disabled = true;
+  btn.textContent = "Enviando...";
+
+  const personas = invitacion.personas.map(function(nombre, i){
+    return {
+      nombre: nombre,
+      asiste: document.getElementById("asiste" + i).value,
+      restriccion: getRestricciones(i)
+    };
+  });
+
+  fetch(API_URL, {
+    method: "POST",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify({
+      action: "guardar",
+      id: invitacion.id,
+      personas: personas,
+      observaciones: document.getElementById("obs").value
+    })
+  })
+    .then(function(r){ return r.json(); })
+    .then(function(result){
+      btn.disabled = false;
+      btn.textContent = "Confirmar asistencia";
+      mostrarConfirmacion(true);
+    })
+    .catch(function(err){
+      btn.disabled = false;
+      btn.textContent = "Confirmar asistencia";
+      alert("No pudimos guardar la respuesta. Probá de nuevo.");
+    });
+
+}
+
+// ===== Arranque =====
+renderEstatico();
+initReveal();
+
+</script>
+
+</body>
+
+</html>
