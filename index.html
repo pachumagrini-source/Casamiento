@@ -338,7 +338,7 @@ h1,h2,h3{
   top:0;
   bottom:0;
   z-index:50;
-  background:var(--paper);
+  background:#FAF9F6;
   overflow-y:auto;
   -webkit-overflow-scrolling:touch;
   display:none;
@@ -362,7 +362,7 @@ h1,h2,h3{
   display:flex;
   justify-content:flex-end;
   padding:12px 16px;
-  background:var(--paper);
+  background:#FAF9F6;
   z-index:2;
 }
 
@@ -725,11 +725,10 @@ function renderEstatico(){
 
   document.getElementById("regaloFrase").textContent = CONFIG.regalo.frase;
 
-  document.getElementById("regaloAliases").innerHTML = ALIAS_LISTA.map(function(a){
-    return '<div class="alias-bloque">' +
-      '<div class="alias">' + esc(CONFIG.regalo[a.key]) + '</div>' +
-      '<div class="alias-label">' + esc(a.label) + '</div>' +
-      '</div>';
+  document.getElementById("regaloAliases").innerHTML = '<div class="alias-bloque">' +
+      '<div class="alias">' + esc(CONFIG.regalo.aliasPesos) + '</div>' +
+      '<div class="alias-label">Alias CBU</div>' +
+    '</div>';
   }).join("");
 
   const t = document.getElementById("regaloTitular");
