@@ -710,7 +710,6 @@ function cerrarSheet(idSheet){
 
 // ===== Contenido estático =====
 function renderEstatico(){
-
 document.getElementById("eventos").innerHTML = ["civil", "fiesta"].map(function(k){
     const e = CONFIG[k];
     return '<div class="col">' +
@@ -725,16 +724,17 @@ document.getElementById("eventos").innerHTML = ["civil", "fiesta"].map(function(
 
   document.getElementById("regaloFrase").textContent = CONFIG.regalo.frase;
 
+  // Modificado para que diga ALIAS arriba y el recuadro abajo
   document.getElementById("regaloAliases").innerHTML = 
     '<div class="alias-bloque">' +
-      '<div class="alias-label" style="color: #4E7097; font-weight: 600; margin-bottom: 4px;">ALIAS</div>' +
-      '<div class="alias" style="color: #4E7097;">' + esc(CONFIG.regalo.aliasPesos) + '</div>' +
+      '<div style="font-size: 12px; letter-spacing: .15em; text-transform: uppercase; color: #4E7097; font-weight: 600; margin-bottom: 6px;">ALIAS</div>' +
+      '<div class="alias" style="color: #4E7097; font-weight: 600;">' + esc(CONFIG.regalo.aliasPesos) + '</div>' +
     '</div>';
 
   const t = document.getElementById("regaloTitular");
   if (CONFIG.regalo.titular) {
     t.innerHTML = 
-      '<div class="alias-label" style="color: #4E7097; font-weight: 600; margin-top: 18px; margin-bottom: 4px;">TITULAR</div>' +
+      '<div style="font-size: 12px; letter-spacing: .15em; text-transform: uppercase; color: #4E7097; font-weight: 600; margin-top: 18px; margin-bottom: 4px;">TITULAR</div>' +
       '<div style="font-size: 18px; font-weight: 600; color: #4E7097;">' + esc(CONFIG.regalo.titular) + '</div>';
     t.style.display = "block";
   } else {
