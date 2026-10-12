@@ -7,16 +7,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
 
 <style>
 
 :root{
-  --paper:#fbfaf7;
-  --dark:#1a1a18;
-  --ink:#1a1a18;
-  --muted:#6b675e;
-  --line:#ddd8cd;
+  --paper:##FAF9F6;
+  --dark:#5578A0;
+  --ink:#4E7097;
+  --muted:#7d8793;
+  --line:#d9d6cf;
   --card:#ffffff;
 }
 
@@ -42,8 +42,8 @@ body{
 body.noscroll{overflow:hidden}
 
 h1,h2,h3{
-  font-family:'Playfair Display',Georgia,serif;
-  font-weight:400;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:600;
   margin:0;
 }
 
@@ -55,19 +55,21 @@ h1,h2,h3{
   width:100vw;
   margin-left:calc(50% - 50vw);
   margin-right:calc(50% - 50vw);
-  background:var(--dark);
-  color:#fff;
+  background:var(--paper);
+  color:var(--ink);
   display:flex;
   flex-direction:column;
-  justify-content:space-between;
+  justify-content:center;
+  gap:18px;
   align-items:center;
   text-align:center;
   padding:56px 20px 72px;
 }
 
 .hero .nombre{
-  font-family:'Playfair Display',Georgia,serif;
+  font-family:'Cormorant Garamond',Georgia,serif;
   font-weight:700;
+  text-shadow:0 0 1px rgba(0,0,0,.08);
   text-transform:uppercase;
   font-size:clamp(40px,13.5vw,72px);
   line-height:1;
@@ -83,22 +85,24 @@ h1,h2,h3{
 
 .hero .saludo{
   margin-top:20px;
-  font-family:'Playfair Display',Georgia,serif;
+  font-family:'Cormorant Garamond',serif;
   font-style:italic;
-  font-size:23px;
-  color:rgba(255,255,255,.75);
-  min-height:34px;
+  font-size:42px;
+  color:var(--ink);
+  min-height:60px;
+  line-height:1.1;
 }
 
 .hint{
   position:absolute;
-  bottom:22px;
+  bottom:35px;
   left:0;
   right:0;
-  font-size:11px;
-  letter-spacing:.3em;
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:.25em;
   text-transform:uppercase;
-  color:rgba(255,255,255,.55);
+  color:#6D8FB5;
   animation:bob 2s ease-in-out infinite;
 }
 
@@ -118,6 +122,33 @@ h1,h2,h3{
 }
 
 .block.tight-top{padding-top:28px}
+.bloque-casamos{
+  margin-top:40px;
+  margin-bottom:40px;
+}
+.bloque-evento{
+  background:#446588;
+  border-radius:28px;
+  padding:60px 35px;
+  margin-top:50px;
+  margin-bottom:50px;
+}
+.bloque-evento .btn.out{
+  color:#ffffff;
+  border-color:#ffffff;
+}
+.bloque-evento h2,
+.bloque-evento h3,
+.bloque-evento .dia,
+.bloque-evento .hora,
+.bloque-evento .lbl,
+.bloque-evento .texto{
+  color:#ffffff;
+}
+.bloque-evento .dir,
+.bloque-evento .nota{
+  color:#f4f4f0;
+}
 
 .block > *:not(.wm){position:relative}
 
@@ -128,7 +159,7 @@ h1,h2,h3{
   left:0;
   right:0;
   top:34px;
-  font-family:'Playfair Display',Georgia,serif;
+  font-family:'Cormorant Garamond',Georgia,serif;
   font-size:92px;
   line-height:.9;
   text-transform:uppercase;
@@ -149,6 +180,7 @@ h1,h2,h3{
 .big{
   font-size:clamp(42px,12.5vw,60px);
   line-height:1.08;
+  font-weight:600;
 }
 
 .rule{
@@ -160,12 +192,12 @@ h1,h2,h3{
 
 .texto{
   font-size:15px;
-  color:#3a3833;
+  color:#516070;
   margin:0;
 }
 
 .firma{
-  font-family:'Playfair Display',Georgia,serif;
+  font-family:'Cormorant Garamond',Georgia,serif;
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:.02em;
@@ -191,21 +223,21 @@ h1,h2,h3{
 
 .col{padding:6px 10px}
 
-.col + .col{border-left:1px solid var(--line)}
+.col + .col{ border-left:1px solid rgba(255,255,255,.20);}
 
 .col svg{margin-bottom:6px}
 
 .col .lbl{
   font-size:10px;
-  font-weight:500;
+  font-weight:600;
   letter-spacing:.3em;
   text-transform:uppercase;
   color:var(--muted);
 }
 
 .col h3{
-  font-size:22px;
-  font-weight:500;
+  font-size:26px;
+  font-weight:700;
   line-height:1.15;
   margin:8px 0 6px;
   min-height:3.45em;
@@ -217,7 +249,7 @@ h1,h2,h3{
 .col .dir{font-size:12px;color:var(--muted)}
 
 .col .hora{
-  font-family:'Playfair Display',Georgia,serif;
+  font-family:'Cormorant Garamond',Georgia,serif;
   font-size:40px;
   margin:16px 0 4px;
 }
@@ -241,7 +273,7 @@ h1,h2,h3{
   background:var(--dark);
   color:#fff;
   border:2px solid var(--dark);
-  border-radius:8px;
+  border-radius:12px;
   font-family:inherit;
   font-size:15px;
   font-weight:500;
@@ -281,14 +313,14 @@ h1,h2,h3{
 }
 
 .pie .a{
-  font-family:'Playfair Display',Georgia,serif;
+  font-family:'Cormorant Garamond',Georgia,serif;
   font-style:italic;
   color:rgba(255,255,255,.7);
   font-size:20px;
 }
 
 .pie .n{
-  font-family:'Playfair Display',Georgia,serif;
+  font-family:'Cormorant Garamond',Georgia,serif;
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:.02em;
@@ -442,6 +474,7 @@ input[type="text"]{
   align-items:center;
   justify-content:center;
   padding:24px;
+  background:var(--paper);
 }
 
 .gate-box{
@@ -470,7 +503,7 @@ input[type="text"]{
 .detalle h3{font-size:20px;font-weight:500;margin-bottom:6px}
 
 .gate-title{
-  font-family:'Playfair Display',Georgia,serif;
+  font-family:'Cormorant Garamond',Georgia,serif;
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:.02em;
@@ -498,7 +531,7 @@ input[type="text"]{
 
   <div id="gate" class="gate">
   <div class="gate-box">
-    <div class="gate-title">Agustina<br>+<br>Mariano</div>
+    <div class="gate-title">Nacho & Pachu </div>
     <p class="texto" style="margin:10px 0 20px">Escribí tu nombre y apellido para ver tu invitación.</p>
     <input type="text" id="gateNombre" placeholder="Nombre y apellido" autocomplete="name">
     <button class="btn" id="btnGate" onclick="buscarIdentidad()">Ver mi invitación</button>
@@ -509,62 +542,65 @@ input[type="text"]{
 <div id="app" style="display:none">
 <!-- PORTADA -->
 <div class="hero">
-  <div class="nombre">Agustina</div>
+  <div class="nombre">Nacho &amp; Pachu</div>
+  <div class="fecha-portada">28 · 11 · 26</div>
   <div>
     <div class="saludo" id="saludo"></div>
   </div>
-  <div class="nombre">Mariano</div>
-  <div class="hint">Deslizá ↓</div>
+    <div class="hint">Deslizá ↓</div>
 </div>
 
-<!-- NOS CASAMOS -->
-<section class="block">
-  <div class="wm">NOS CASAMOS</div>
-  <h2 class="big">NOS<br>CASAMOS</h2>
+<!-- Nos casamos -->
+<section class="block bloque-casamos">
+  <div class="wm">Nos casamos</div>
+  <h2 class="big">Nos<br>casamos</h2>
   <div class="rule"></div>
-    <p class="texto">¡Queremos celebrar este día con ustedes!<br>Esperamos que puedan acompañarnos.</p>
-  <div class="firma">Agustina + Mariano</div>
+    <p class="texto">¡Queremos compartir este día con ustedes!<br>Esperamos que puedan acompañarnos.</p>
+  <div class="firma">Nacho & Pachu</div>
 </section>
 
 <!-- EL GRAN DÍA + DETALLES -->
-<section class="block tight-top">
-  <h2 class="big" style="font-size:clamp(30px,9vw,38px)">CUÁNDO Y DÓNDE</h2>
-  <div class="dia">Viernes, 30 de octubre</div>
+<section class="block tight-top bloque-evento">
+  <h2 class="big" style="font-size:clamp(30px,9vw,38px)">Nos encontramos ahí</h2>
+  <div class="dia">Sábado, 28 de noviembre</div>
   <div class="cols" id="eventos"></div>
 
+
   <div class="rule" style="margin-top:44px"></div>
+  </section>
+  <section class="block tight-top">
 
     <h2 class="big" style="font-size:clamp(30px,9vw,38px)">Preguntas Frecuentes</h2>
 
   <div class="detalle">
     <h3>¿Cuál es el dress code?</h3>
-    <p class="texto">Es Cocktail / Elegante</p>
+    <p class="texto">Elegante Sport. No blanco, obvio, ni colores pasteles.</p>
   </div>
 
   <div class="detalle">
     <h3>¿Puedo llevar niños o un +1?</h3>
-    <p class="texto">Como se trata de una reunión íntima, les pedimos que solo asistan las personas nombradas en la invitación. El festejo va a ser solo para adultos.  </p>
+    <p class="texto">Les pedimos con cariño que nos acompañen únicamente las personas nombradas en la invitación. La celebración será solo para adultos.  </p>
   </div>
 
   <div class="detalle">
     <h3>¿Hay estacionamiento?</h3>
-    <p class="texto">Águila Pabellón no cuenta con estacionamiento propio. De todas formas, está el estacionamiento de La Rural en frente.</p>
+    <p class="texto">El predio cuenta con estacionamiento.</p>
   </div>
 </section>
 
 <!-- ANTES DE IRTE -->
 <section class="block tight-top">
   <div class="eyebrow">Antes de irte</div>
-  <button class="btn" id="btnAbrirRsvp" onclick="abrirSheet('sheetRsvp')">RSVP</button>
+  <button class="btn" id="btnAbrirRsvp" onclick="abrirSheet('sheetRsvp')">Confirmá asistencia</button>
   <p class="texto" style="font-size:12px;margin-top:10px">
-    Confirmá tu asistencia antes del <strong>25/10</strong>
+    Confirmá tu asistencia antes del <strong>20/11</strong>
   </p>
   <button class="btn out" onclick="abrirSheet('sheetRegalo')">Regalos</button>
 </section>
 
 <div class="pie">
   <div class="a">Los esperamos</div>
-  <div class="n">Agustina + Mariano</div>
+  <div class="n">Nacho & Pachu</div>
 </div>
 
 <!-- PANEL RSVP -->
@@ -574,7 +610,7 @@ input[type="text"]{
   </div>
   <div class="sheet-body">
     <div id="rsvpIntro">
-      <div class="eyebrow">RSVP</div>
+      <div class="eyebrow">Confirmación</div>
       <h2 style="font-size:36px">Confirmá tu asistencia</h2>
       <p class="texto" style="margin-top:8px">Contanos si nos acompañan en la fiesta.</p>
     </div>
@@ -618,34 +654,29 @@ const RESTRICCIONES = ["Vegetariano", "Vegano", "Celíaco", "Sin lactosa"];
 
 // ===== Datos editables =====
 const CONFIG = {
-  civil: {
+civil: {
     etiqueta: "Ceremonia",
-    titulo: "Registro Civil Central",
-    direccion: "Uruguay 753",
-    hora: "15",
+    titulo: "Parroquia San Patricio",
+    direccion: "",
+    hora: "16:30",
     nota: "",
-    maps: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Uruguay 753, CABA")
+    maps: "https://maps.app.goo.gl/5FGuuWTYuYBpGzbC6"
   },
   fiesta: {
-    etiqueta: "Recepción",
-    titulo: "Águila Pabellón",
-    direccion: "Sarmiento 2725",
-    hora: "18",
+    etiqueta: "Fiesta",
+    titulo: "Club Manuel Belgrano",
+    direccion: "",
+    hora: "19:00",
     nota: "",
-    maps: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Águila Pabellón, Sarmiento 2725, Buenos Aires")
+    maps: "https://maps.app.goo.gl/JLxcApaLGDYmZdGo8"
   },
   regalo: {
-    frase: "Si querés hacernos un regalo y no sabés qué, podes hacernos una transferencia a:",
-    aliasPesos: "AgusyMarian.pesos",
-    aliasDolares: "AgusyMarian.dolares",
-    titular: "Titular de la cuenta: Elmiger Mariano Andrés"
+    frase: "Si querés hacernos un regalo y no sabés qué, podés hacernos una transferencia a:",
+    aliasPesos: "nachoypachu281126",
+  
+    titular: "María Paz Magrini"
   }
 };
-
-const ALIAS_LISTA = [
-  { label: "Alias en pesos", key: "aliasPesos" },
-  { label: "Alias en dólares", key: "aliasDolares" }
-];
 
 // ===== Utilidades =====
 function esc(s){
@@ -820,7 +851,7 @@ function cargar(data){
 
   invitacion = data;
 
-  document.getElementById("saludo").textContent = "Hola " + data.grupo;
+  document.getElementById("saludo").textContent = "¡Hola " + data.grupo + "!";
 
   let html = "";
 
@@ -942,7 +973,7 @@ function mostrarConfirmacion(scroll){
 
   const titulo = van > 0 ? "¡Gracias por confirmar!" : "Gracias por avisarnos";
   const texto = van > 0
-    ? "Los esperamos el 30 de octubre."
+    ? "Nos vemos el 28 de noviembre!"
     : "Lamentamos que no puedan acompañarnos.";
 
   const c = document.getElementById("confirmacion");
