@@ -725,14 +725,20 @@ function renderEstatico(){
 
   document.getElementById("regaloFrase").textContent = CONFIG.regalo.frase;
 
-  document.getElementById("regaloAliases").innerHTML = '<div class="alias-bloque">' +
+  document.getElementById("regaloAliases").innerHTML = 
+    '<div class="alias-bloque">' +
+      '<div class="alias-label">ALIAS</div>' +
       '<div class="alias">' + esc(CONFIG.regalo.aliasPesos) + '</div>' +
-      '<div class="alias-label">Alias CBU</div>' +
     '</div>';
 
   const t = document.getElementById("regaloTitular");
-  if (CONFIG.regalo.titular) t.textContent = CONFIG.regalo.titular;
-  else t.style.display = "none";
+  if (CONFIG.regalo.titular) {
+    t.innerHTML = 
+      '<div class="alias-label" style="margin-top:18px;">TITULAR</div>' +
+      '<div style="font-size:18px; font-weight:600; color:var(--ink);">' + esc(CONFIG.regalo.titular) + '</div>';
+    t.style.display = "block";
+  } else {
+    t.style.display = "none";
 
 }
 
