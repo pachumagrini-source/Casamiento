@@ -12,7 +12,7 @@
 <style>
 
 :root{
-  --paper:##FAF9F6;
+  --paper:#FAF9F6;
   --dark:#5578A0;
   --ink:#4E7097;
   --muted:#7d8793;
@@ -729,7 +729,6 @@ function renderEstatico(){
       '<div class="alias">' + esc(CONFIG.regalo.aliasPesos) + '</div>' +
       '<div class="alias-label">Alias CBU</div>' +
     '</div>';
-  }).join("");
 
   const t = document.getElementById("regaloTitular");
   if (CONFIG.regalo.titular) t.textContent = CONFIG.regalo.titular;
