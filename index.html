@@ -191,9 +191,13 @@ h1,h2,h3{
 }
 
 .texto{
-  font-size:15px;
-  color:#516070;
+  font-size:17px;
+  color:#3f5061;
   margin:0;
+  font-weight:400;
+}
+  .detalle .texto{
+  line-height:1.9;
 }
 
 .firma{
@@ -453,6 +457,8 @@ input[type="text"]{
   border:1px dashed var(--ink);
   border-radius:8px;
   font-size:20px;
+  font-weight:700;
+  background:#ffffff;
   letter-spacing:.06em;
 }
 
@@ -500,7 +506,18 @@ input[type="text"]{
 
 .detalle{margin-top:30px}
 .detalle:first-child{margin-top:24px}
-.detalle h3{font-size:20px;font-weight:500;margin-bottom:6px}
+.detalle h3{font-size:24px;
+  font-weight:700;
+  color:var(--dark);
+  margin-bottom:12px;}
+.detalle h3::after{
+  content:"";
+  display:block;
+  width:40px;
+  height:2px;
+  background:#5578A0;
+  margin:10px auto 0;
+}  
 
 .gate-title{
   font-family:'Rufina',Georgia,serif;
