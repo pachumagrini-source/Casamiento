@@ -730,13 +730,50 @@ function renderEstatico(){
 document.getElementById("eventos").innerHTML = ["civil", "fiesta"].map(function(k){
     const e = CONFIG[k];
     return '<div class="col">' +
-      '<div class="lbl">' + esc(e.etiqueta) + '</div>' +
-      '<h3>' + esc(e.titulo) + '</h3>' +
-      '<div class="dir">' + esc(e.direccion) + '</div>' +
-      '<div class="hora">' + esc(e.hora) + ' <em>hs</em></div>' +
-      '<div class="nota">' + esc(e.nota) + '</div>' +
-      '<a class="btn out mini" href="' + e.maps + '" target="_blank" rel="noopener">Cómo llegar</a>' +
-      '</div>';
+        '<div class="icono">' +
+
+  (k === "civil"
+
+  ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">' +
+    '<g stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">' +
+      '<path d="M32 7v12 M26.5 12h11"/>' +
+      '<path d="M11 31 32 17 53 31"/>' +
+      '<path d="M15 29v27 M49 29v27 M9 56h46"/>' +
+      '<path d="M25 56V44a7 7 0 0 1 14 0v12"/>' +
+    '</g>' +
+    '</svg>'
+
+  : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">' +
+    '<g stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">' +
+      '<path d="M20 10 32 12 29 29 Q27 34 22 34 Q17 33 18 28Z"/>' +
+      '<path d="M44 10 32 12 35 29 Q37 34 42 34 Q47 33 46 28Z"/>' +
+      '<path d="M22 34 17 51 M17 51 11 50 M17 51 22 53"/>' +
+      '<path d="M42 34 47 51 M47 51 41 53 M47 51 53 50"/>' +
+    '</g>' +
+    '</svg>'
+  ) +
+
+  '</div>' +
+
+  '<h3>' + esc(e.titulo) + '</h3>' +
+
+  '<div class="hora">' + esc(e.hora) + ' <em>hs</em></div>' +
+
+  '<a class="btn out mini" href="' + e.maps + '" target="_blank" rel="noopener">Cómo llegar</a>' +
+
+  '</div>';
+  .icono{
+  width:38px;
+  height:38px;
+  margin:0 auto 18px;
+  color:#ffffff;
+}
+
+.icono svg{
+  width:100%;
+  height:100%;
+  display:block;
+}
   }).join("");
 
   document.getElementById("regaloFrase").textContent = CONFIG.regalo.frase;
