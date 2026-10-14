@@ -231,6 +231,19 @@ h1,h2,h3{
 
 .col svg{margin-bottom:6px}
 
+  .icono{
+  width:38px;
+  height:38px;
+  margin:0 auto 18px;
+  color:#ffffff;
+}
+
+.icono svg{
+  width:100%;
+  height:100%;
+  display:block;
+}
+
 .col .lbl{
   font-size:10px;
   font-weight:600;
@@ -762,18 +775,7 @@ document.getElementById("eventos").innerHTML = ["civil", "fiesta"].map(function(
   '<a class="btn out mini" href="' + e.maps + '" target="_blank" rel="noopener">Cómo llegar</a>' +
 
   '</div>';
-  .icono{
-  width:38px;
-  height:38px;
-  margin:0 auto 18px;
-  color:#ffffff;
-}
-
-.icono svg{
-  width:100%;
-  height:100%;
-  display:block;
-}
+ 
   }).join("");
 
   document.getElementById("regaloFrase").textContent = CONFIG.regalo.frase;
