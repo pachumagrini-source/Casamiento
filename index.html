@@ -227,7 +227,7 @@ h1,h2,h3{
 
 .col{padding:6px 10px}
 
-.col + .col{ border-left:1px solid rgba(255,255,255,.20);}
+.col + .col{  border-left:1px solid rgba(255,255,255,.35);}
 
 .col svg{margin-bottom:6px}
 
@@ -245,33 +245,40 @@ h1,h2,h3{
 }
 
 .col .lbl{
-  font-size:10px;
+  font-size:12px;
   font-weight:600;
-  letter-spacing:.3em;
+  letter-spacing:.35em;
   text-transform:uppercase;
-  color:var(--muted);
+  color:rgba(255,255,255,.75);
+  margin-bottom:18px;
 }
 
 .col h3{
-  font-size:26px;
-  font-weight:700;
-  line-height:1.15;
-  margin:8px 0 6px;
-  min-height:3.45em;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  font-family:'Rufina',Georgia,serif;
+  font-size:24px;
+  line-height:1.2;
+  font-weight:400;
+  margin:10px 0 6px;
+  min-height:auto;
+  display:block;
 }
 
-.col .dir{font-size:12px;color:var(--muted)}
+.col .dir{  
+  font-size:15px;
+  color:rgba(255,255,255,.70);
+  margin-bottom:22px;}
 
 .col .hora{
   font-family:'Rufina',Georgia,serif;
-  font-size:40px;
-  margin:16px 0 4px;
+  font-size:58px;
+  font-weight:400;
+  margin:18px 0 22px;
 }
 
-.col .hora em{font-size:24px}
+.col .hora em{  
+  font-size:26px;
+  opacity:.65;
+}
 
 .col .nota{
   font-size:11px;
@@ -686,8 +693,8 @@ const RESTRICCIONES = ["Vegetariano", "Vegano", "Celíaco", "Sin lactosa"];
 const CONFIG = {
 civil: {
     etiqueta: "Ceremonia",
-    titulo: "Parroquia San Patricio",
-    direccion: "",
+    titulo: "Parroquia<br>San Patricio",
+    direccion: "Belgrano",
     hora: "16:30",
     nota: "",
     maps: "https://maps.app.goo.gl/5FGuuWTYuYBpGzbC6"
@@ -695,7 +702,7 @@ civil: {
   fiesta: {
     etiqueta: "Fiesta",
     titulo: "Club Manuel Belgrano",
-    direccion: "",
+    direccion: "Maschwitz",
     hora: "19:00",
     nota: "",
     maps: "https://maps.app.goo.gl/JLxcApaLGDYmZdGo8"
@@ -768,7 +775,11 @@ document.getElementById("eventos").innerHTML = ["civil", "fiesta"].map(function(
 
   '</div>' +
 
-  '<h3>' + esc(e.titulo) + '</h3>' +
+  '<h3>' + e.titulo + '</h3>' +
+
+  '<div class="dir">' + esc(e.direccion) + '</div>' +
+
+  '<div class="lbl">' + esc(e.etiqueta) + '</div>' +
 
   '<div class="hora">' + esc(e.hora) + ' <em>hs</em></div>' +
 
